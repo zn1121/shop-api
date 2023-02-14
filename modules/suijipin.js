@@ -16,4 +16,4 @@ exports.suijipin = function(req,res){
       res.send(result);
     }
   });
-  }
+}
