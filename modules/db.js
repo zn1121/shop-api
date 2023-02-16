@@ -45,7 +45,7 @@ function connect() {
         }
     });
     con.on("error", handleError);
-    // 每个小时ping一次数据库，保持数据库连接状态
+    // 每3个小时ping一次数据库，保持数据库连接状态
     clearInterval(pingInterval);
     pingInterval = setInterval(() => {
         console.log('ping...');
@@ -54,7 +54,7 @@ function connect() {
                 console.log('ping error: ' + JSON.stringify(err));
             }
              });
-    }, 3600000*3);
+    }, 3600000);
 }
 connect();
 
