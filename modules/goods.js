@@ -40,7 +40,6 @@ exports.getGoodsPage = function(req,res){
 
 exports.insert = function(req,res){
   console.log("req.query:",req.query);
-  // console.log(req)
   var now = new Date()
   var  name=req.query.name;//下单用户名
   var  num=req.query.num;//下单数量
@@ -50,8 +49,9 @@ exports.insert = function(req,res){
   var  mail_name = req.query.mail_name;
   var  mail_address = req.query.mail_address;
   var  mail_number = req.query.mail_number;
+  var  remark = req.query.remark
   //插入信息
-  db.query("insert into info (name,num,goodsID,price,time,mail_name,mail_address,mail_number) values (?,?,?,?,?,?,?,?)",[name,num,goodsId,price,time,mail_name,mail_address,mail_number],(err,result)=>{
+  db.query("insert into info (name,num,goodsID,price,time,mail_name,mail_address,mail_number,remark) values (?,?,?,?,?,?,?,?,?)",[name,num,goodsId,price,time,mail_name,mail_address,mail_number,remark],(err,result)=>{
     if(err){
       res.send({
         status: 0,

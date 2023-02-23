@@ -53,7 +53,7 @@ function connect() {
             if (err) {
                 console.log('ping error: ' + JSON.stringify(err));
             }
-             });
+        });
     }, 3600000);
 }
 connect();
