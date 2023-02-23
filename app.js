@@ -18,6 +18,10 @@ app.set('view engine', 'ejs');
 app.get('/getGoods',good.getGoods);
 app.get('/getGoodsPage',good.getGoodsPage);
 app.get('/insert',good.insert)
+app.get('/getSingle',good.getSingle)
+
+
+
 
 app.use(logger('dev'));
 app.use(express.json());
