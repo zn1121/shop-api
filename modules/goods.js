@@ -23,7 +23,7 @@ exports.getGoods = function(req,res){
 //测试翻页接口数据请求
 exports.getGoodsPage = function(req,res){
   var min = req.query.index*10;
-  var max = min+9
+  var max = 10
   db.query('select * from goods limit ?,?',[min,max],(err,result)=>{
     // console.log("result",result[0].id)
     if(err){
