@@ -38,6 +38,8 @@ exports.getGoodsPage = function(req,res){
   });
 }
 
+
+//获取信息
 exports.insert = function(req,res){
   console.log("req.query:",req.query);
   var now = new Date()
@@ -64,11 +66,10 @@ exports.insert = function(req,res){
   })
 }
 
-
-exports.getSingle = function(req,res){
-  var id = req.query.id;
-  db.query('select * from goods where spuId = ?',id,(err,result)=>{
-    // console.log("result",result[0].id)
+//搜索接口
+exports.search = function(req,res){
+  var title = req.query.title;
+  db.query(`select * from goods where title like '%${title}%'`,title,(err,result)=>{
     if(err){
       res.send({
         status: 0,
@@ -80,3 +81,20 @@ exports.getSingle = function(req,res){
     }
   });
 }
+
+
+// exports.getSingle = function(req,res){
+//   var id = req.query.id;
+//   db.query('select * from goods where spuId = ?',id,(err,result)=>{
+//     // console.log("result",result[0].id)
+//     if(err){
+//       res.send({
+//         status: 0,
+//         info: 'error',
+//         message: '数据库错误'
+//       })
+//     }else{
+//       res.send(result);
+//     }
+//   });
+// }

@@ -14,11 +14,12 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-//
 app.get('/getGoods',good.getGoods);
 app.get('/getGoodsPage',good.getGoodsPage);
 app.get('/insert',good.insert)
-app.get('/getSingle',good.getSingle)
+app.get('/search',good.search)
+
+// app.get('/getSingle',good.getSingle)
 
 
 
